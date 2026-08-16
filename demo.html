@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GenLayer Spinner — Showcase</title>
+<style>
+  :root {
+    --cobalt: #110FFF;
+    --carbon: #070707;
+    --ceramic: #F5F5F5;
+    --photon: #FFFFFF;
+    --graphite: #303030;
+    --chassis: #CACACA;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: var(--ceramic);
+    color: var(--carbon);
+  }
+  header {
+    padding: 48px 32px 24px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  p.sub {
+    color: var(--graphite);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 56ch;
+  }
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--chassis);
+    max-width: 760px;
+    margin: 32px auto;
+    border: 1px solid var(--chassis);
+  }
+  .panel {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .panel--light { background: var(--photon); color: var(--carbon); }
+  .panel--dark  { background: var(--carbon); color: var(--photon); }
+  .panel__label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+  .row {
+    display: flex;
+    align-items: flex-end;
+    gap: 28px;
+  }
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .cell__size {
+    font-size: 11px;
+    opacity: 0.5;
+  }
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8px 32px 56px;
+    font-size: 12px;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+  code {
+    background: rgba(0,0,0,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GenLayer Spinner — Converging Minds</h1>
+  <p class="sub">
+    Three static nodes on the GenLayer triangle, one Kinetic Cobalt arc
+    sweeping the orbit — the validator poll closing into consensus, looped.
+    Same file works on light and dark, down to 16px.
+  </p>
+</header>
+
+<div class="panels">
+  <div class="panel panel--light">
+    <div class="panel__label">Light background</div>
+    <div class="row">
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="64" height="64" alt="" />
+        <span class="cell__size">64px</span>
+      </div>
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="32" height="32" alt="" />
+        <span class="cell__size">32px</span>
+      </div>
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="16" height="16" alt="" />
+        <span class="cell__size">16px</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel--dark">
+    <div class="panel__label">Dark background</div>
+    <div class="row">
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="64" height="64" alt="" />
+        <span class="cell__size">64px</span>
+      </div>
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="32" height="32" alt="" />
+        <span class="cell__size">32px</span>
+      </div>
+      <div class="cell">
+        <img src="genlayer-spinner.svg" width="16" height="16" alt="" />
+        <span class="cell__size">16px</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Loaded here as a plain <code>&lt;img src="genlayer-spinner.svg"&gt;</code> —
+  the SMIL animation inside the SVG runs on its own, no CSS/JS required, so
+  it drops straight into any loading state in the Portal. A CSS-animation
+  variant (<code>genlayer-spinner.css</code> + <code>spinner-inline-snippet.html</code>)
+  is included for contexts that want to theme it inline via
+  <code>--gl-spinner-color</code>.
+</footer>
+
+</body>
+</html>
