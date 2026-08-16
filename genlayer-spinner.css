@@ -1,0 +1,54 @@
+/* GenLayer Spinner — CSS animation variant
+   Pair with the markup in spinner-inline-snippet.html.
+   Colors default to Kinetic Cobalt (#110FFF), the brand's primary accent,
+   which reads on both light and dark backgrounds. Override via
+   --gl-spinner-color if a context needs a different tone.
+   Respects prefers-reduced-motion by slowing to a gentle pulse instead of
+   removing feedback entirely (a static spinner reads as "frozen", not
+   "loading" — so we keep a slow pulse rather than stopping outright). */
+
+.gl-spinner {
+  --gl-spinner-color: #110FFF;
+  --gl-spinner-track: rgba(17, 15, 255, 0.16);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.gl-spinner__track {
+  fill: none;
+  stroke: var(--gl-spinner-track);
+  stroke-width: 2;
+}
+
+.gl-spinner__node {
+  fill: var(--gl-spinner-color);
+}
+
+.gl-spinner__arc {
+  fill: none;
+  stroke: var(--gl-spinner-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 23.56 70.69;
+  transform-origin: 20px 20px;
+  animation: gl-spinner-rotate 1.1s linear infinite;
+}
+
+@keyframes gl-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-spinner__arc {
+    animation-name: gl-spinner-pulse;
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;
+  }
+  @keyframes gl-spinner-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+}
